@@ -22,7 +22,6 @@
 #include "wiring.h"
 #include "simp_print.h"
 #include "net_serial.h"
-#include "net_twi.h"
 
 static inline uint16_t makeWord(uint16_t w)
 {

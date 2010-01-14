@@ -48,25 +48,25 @@ Arduino-Lite provides the following APIs, most of them are defined as Marco:
   //initialize the serial port#0 operating on the default 19200 Baud-rate
   
   * void serial_begin(unsigned long baud); 
-  //the C implementation of HardwareSerial::begin()
+  //the C implementation of Serial.begin()
   
   * uint8_t serial_available(void); 
-  //the C implementation of HardwareSerial::available()
+  //the C implementation of Serial.available()
 
   * int serial_getc(void); 
-  //the C implementation of HardwareSerial::getc()
+  //the C implementation of Serial.getc()
  
   * void serial_flush(void); 
-  //the C implementation of HardwareSerial::flush()
+  //the C implementation of Serial.flush()
 
   * void serial_putc(uint8_t c); 
-  //the C implementation of HardwareSerial::putc()
+  //the C implementation of Serial.putc()
 
-  * void serial_puts(uint8_t *buf, size_t size); 
-  //the C implementation of HardwareSerial::puts() 
+  * void serial_puts(uint8_t `*`buf, size_t size); 
+  //the C implementation of Serial.puts() 
 
-  * void serial_puts(uint8_t *buf); 
-  //the C implementation of HardwareSerial::flush()
+  * void serial_puts(uint8_t `*`buf); 
+  //the C implementation of Serial.flush()
 
   * serial_xxxx_at() 
   //for the AVR chip with multiple serial ports available, you can use these interfaces to access a specific serial port.

@@ -1,13 +1,105 @@
-#summary One-sentence summary of this page.
+#Arduino-Lite API reference
 
 = Introduction =
 
-TODO: to be written
+This document describes the API provided by Arduino-Lite. Since this library is based on the work of Arduino Project, most of the original functions are inherited. For these functions, you can refer to the Language Reference Page of Arduino Project (http://arduino.cc/en/Reference/HomePage).
 
+This document focuses on the following parts:
+  * New APIs added by Arduino-Lite
+  * Existing APIs that have been extended/changed by Arduino-Lite
+  * The extended Arduino Pin naming model
+  * Advanced features
 
-= Details =
+= New APIs added by Arduino-Lite =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== Overview ==
+Arduino-Lite provides the following APIs, most of them are defined as Marco:
+
+*IO controlling(wiring_lit.h)*
+  * PIN_MODE( pin, mode ) 
+  // fast version of pinMode()
+
+  * DIGITAL_WRITE( pin, value ) 
+  //fast version of digitalWrite
+
+  * DIGITAL_READ( pin ) 
+  //fast version of digitalRead
+
+  * ANALOG_WRITE( pin, pwm_value ) 
+  //fast version of analogWrite
+
+  * PWM_SET( pin, pwm_value ) 
+  //set the PWM value to the specified arduino pin
+
+  * PWM_SET_SAFE( pin, pwm_value) 
+  //similar to PWM_SET, except that the PWM output will be disabled when pwm_value==0 
+
+  * PWM_ENABLE( pin ) 
+  //enable PWM output at the specified arduino pin
+  
+  * enable_adc(void) 
+  // enable the AD-convert module of the chip
+  
+  * disable_adc(void) 
+  // disable the AD-convert module of the chip
+
+*Serial Port(USART) Operation(net_serial.cpp)*
+  * SERIAL_BEGIN() 
+  //initialize the serial port#0 operating on the default 19200 Baud-rate
+  
+  * void serial_begin(unsigned long baud); 
+  //the C implementation of HardwareSerial::begin()
+  
+  * uint8_t serial_available(void); 
+  //the C implementation of HardwareSerial::available()
+
+  * int serial_getc(void); 
+  //the C implementation of HardwareSerial::getc()
+ 
+  * void serial_flush(void); 
+  //the C implementation of HardwareSerial::flush()
+
+  * void serial_putc(uint8_t c); 
+  //the C implementation of HardwareSerial::putc()
+
+  * void serial_puts(uint8_t *buf, size_t size); 
+  //the C implementation of HardwareSerial::puts() 
+
+  * void serial_puts(uint8_t *buf); 
+  //the C implementation of HardwareSerial::flush()
+
+  * serial_xxxx_at() 
+  //for the AVR chip with multiple serial ports available, you can use these interfaces to access a specific serial port.
+
+*String format functions(simp_print.cpp)*
+  * print(..., puts_func func); 
+  // the C implementation of Print::print
+ 
+  * print(char c, putc_func func);  
+  // the C implementation of Print::print
+
+  * print(uint8_t b, putc_func func);  
+  // the C implementation of Print::print
+
+  * printNumber(unsigned long n, uint8_t base, puts_func func) ;  
+  // the C implementation of Print::print
+
+  * printFloat(double number, uint8_t digits, puts_func func)  ;  
+  // the C implementation of Print:: printFloat
+
+*Timing*
+  * sleep(unsigned long ms) 
+  //similar to delay() function, but sleep() will set the chip to the IDLE mode to save power.
+ 
+  * delay_alert(unsigned long ms) 
+  //alertable delay, the delay process can be interrupted and cancelled by invoking alert().
+
+  * alert() 
+  //set the alert flag to suspend a delay function
+
+*Interrupt Handling*
+ * ENABLE_INT(vector, mode) 
+ //enable the interrupt #vector
+ 
+ * DISABLE_INT(vector) 
+ //disable the interrupt #vector

@@ -103,3 +103,10 @@ Arduino-Lite provides the following APIs, most of them are defined as Marco:
  
  * DISABLE_INT(vector) 
  //disable the interrupt #vector
+
+== Detailed Info ==
+TODO: to be documented
+
+= Existing APIs that have been extended/changed =
+TODO: to be documented
+

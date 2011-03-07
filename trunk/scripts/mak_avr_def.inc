@@ -13,12 +13,16 @@ OUTPUT_ROOT := $(BUILD_ROOT)
 OBJ_ROOT    := $(BUILD_ROOT)/obj
 LIB_ROOT    := $(OBJ_ROOT)/lib
 
-REMOVE      := $(WINAVR_HOME)/utils/bin/rm -f
-MV          := $(WINAVR_HOME)/utils/bin/mv -f
-MKDIR       := $(WINAVR_HOME)/utils/bin/mkdir -p
-SED         := $(WINAVR_HOME)/utils/bin/sed
-FIND        := $(WINAVR_HOME)/utils/bin/find
-DIRNAME     := $(WINAVR_HOME)/utils/bin/dirname
+ifndef WINAVR_HOME
+WINAVR_HOME := $(TOOL_ROOT)/win32/WinAVR-20090313
+endif
+
+REMOVE      := $(TOOL_ROOT)/win32/posix/rm -f
+MV          := $(TOOL_ROOT)/win32/posix/mv -f
+MKDIR       := $(TOOL_ROOT)/win32/posix/mkdir -p
+SED         := $(TOOL_ROOT)/win32/posix/sed
+FIND        := $(TOOL_ROOT)/win32/posix/find
+DIRNAME     := $(TOOL_ROOT)/win32/posix/dirname
 #we use the modified avrdude version provided by Arduino
 AVRDUDE     := $(TOOL_ROOT)/win32/avrdude-arduino.exe
 

@@ -36,6 +36,12 @@ OBJ += $(patsubst %.c, $(TARGET_OBJ_ROOT)/%.o, $(_CSRC))
 OBJ += $(patsubst %.cpp, $(TARGET_OBJ_ROOT)/%.o, $(_CXXSRC))
 OBJ += $(patsubst %.S, $(TARGET_OBJ_ROOT)/%.o, $(_ASRC))
 
+OBJ_DUMP = $(patsubst %.c, $(TARGET_OBJ_ROOT)/%.txt, $(_CSRC))
+OBJ_DUMP += $(patsubst %.cpp, $(TARGET_OBJ_ROOT)/%.txt, $(_CXXSRC))
+OBJ_DUMP += $(patsubst %.S, $(TARGET_OBJ_ROOT)/%.txt, $(_ASRC))
+
+BIN_DUMP = $(TARGET).txt
+
 # Define all listing files.
 
 LST += $(patsubst %.c, $(TARGET_OBJ_ROOT)/%.lst, $(_CSRC))
@@ -60,6 +66,13 @@ sym: $(TARGET).sym
 upload: $(TARGET).hex
 	$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH)
 
+# DEBUGING SUPPORT
+
+# disassembly all the output file (*.o)
+dumpobj: $(OBJ_DUMP)
+ 
+# disassembly the elf file
+dump: $(BIN_DUMP)
 
 sizebefore:
 	@if [ -f $(TARGET).elf ]; then echo; $(ELFSIZE); echo; fi
@@ -132,7 +145,14 @@ $(TARGET_OBJ_ROOT)/%.d: %.cpp
 	$(MKDIR) `$(DIRNAME) $@`
 	($(CXX) -M $(ALL_CXXFLAGS) $< | $(SED) "s;$(notdir $*).o:;$(TARGET_OBJ_ROOT)/$*.o $(TARGET_OBJ_ROOT)/$*.d:;" ) > $@
 
-.PHONY:	all build elf hex eep lss sym program coff extcoff clean applet_files sizebefore sizeafter
+# Debugibility Support
+$(TARGET_OBJ_ROOT)/%.txt: $(TARGET_OBJ_ROOT)/%.o
+	$(OBJDUMP) -d $< > $@
+
+$(TARGET).txt: $(TARGET).elf lss
+	$(OBJDUMP) -d $< > $@
+
+.PHONY:	all build elf hex eep lss sym program coff extcoff clean applet_files sizebefore sizeafter dump dumpobj
 
 
 

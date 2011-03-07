@@ -1,7 +1,7 @@
 HOME_TREE := ../..
 
-# TODO: point the WINAVR_HOME to the correct path where the WINAVR is installed 
-WINAVR_HOME := d:\WinAVR-20090313
+# TODO: Set the WINAVR_HOME if you do not want to use the build-in winavr
+#WINAVR_HOME := d:\WinAVR-20090313
 
 # TODO: set the prj_name here
 # default name is your folder's title
@@ -13,7 +13,7 @@ BINARY_NAME := $(notdir $(CURDIR))
 
 # enable the following marco in case you want these features
 #EXTRA_DEFS = -D_ENABLE_SERIAL_CALLBACK
-#
+#EXTRA_DEFS += -D_SERIAL_CUSTOM_RX_ROUTINE_
 
 #includes the common definitions...
 #do not remove them unless you know what you are doing
@@ -21,7 +21,7 @@ include $(HOME_TREE)/scripts/mak_avr_def.inc
 #############################################
 # the following are default settings,
 # modify them if necessary...
-UPLOAD_PORT := COM4
+UPLOAD_PORT := COM3
 #PORT_RATE := 19200
 #MCU := atmega168
 #F_CPU := 16000000

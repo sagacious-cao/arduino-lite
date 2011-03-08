@@ -1,4 +1,6 @@
-Welcome to use Litelib for Arduino-Lite, the light-weight and efficient arduino-variant runtime library for AVR based devices.
+Welcome to use Arduino-Lite, the light-weight and efficient arduino-variant runtime library for AVR based devices.
+
+Arduino-Lite is based on the work of Arduino Project: www.arduino.cc
 
 This library is orignally used by RoboPeak team (www.robopeak.com) and we are proud of releasing it to the public. 
 
@@ -8,10 +10,10 @@ RoboPeak Prject: http://www.robopeak.com
 ---------------------------
   First Use:
 ---------------------------
-If it is the first time for this lib to run on the machine (checked-out from the SVN, extracted from the downloaded package file), please following these:
+If it is the first time for this lib to run on the machine (checked-out from the SVN, extracted from the downloaded package file), please follow these steps:
   
   a. make sure the current platform is supported (see Support Platforms)
-  c. execute the batch file: buildenv.cmd
+  c. execute the batch file: buildenv.cmd under the source root
      This script will extract the WinAVR automatically and configure the working envirnoment.
   b. you are ready to use Arduino-Lite
 

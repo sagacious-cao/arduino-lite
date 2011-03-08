@@ -15,8 +15,10 @@ If it is the first time for this lib to run on the machine (checked-out from the
   a. make sure the current platform is supported (see Support Platforms)
   c. execute the batch file: buildenv.cmd under the source root
      This script will extract the WinAVR automatically and configure the working envirnoment.
-  b. you are ready to use Arduino-Lite
+  b. you are ready to use Arduino-Lite after the script exit
 
+Arduino-Lite is self-contained, which means you don't need to install/download any extra software/lib before (Yes, Arduino-lite also includes WINAVR for you). 
+  
 ---------------------------
   Supported Platforms:
 ---------------------------
@@ -43,7 +45,7 @@ To create your own project:
   Compile a Project
 ---------------------------
 1) enter the project folder (e.g. helloAVR), execute the batch file launchsh.cmd
-2) type make
+2) type make <enter>
 3) If there is no error during the building phase, you will get the hex/elf file under <project_folder>/build/
 
 ---------------------------
@@ -71,3 +73,9 @@ As Arduino-Lite are similar to the offical Arduino library, you will find most f
    disassembly the generated binary (*.elf) to AVR assembly code
 <> make dumpobj
    disassembly each generated object file (*.o) to AVR assembly code
+
+---------------------------
+  Contact the Author
+---------------------------
+The inital developer of Arduino-Lite is Shikai Chen (www.csksoft.net). For any question, please contact via E-mail: 
+  CSK@live.com

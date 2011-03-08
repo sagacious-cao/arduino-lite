@@ -27,6 +27,7 @@
 
 #include <avr/io.h>
 #include <avr/sleep.h>
+#include <util/delay.h>
 #include "binary.h"
 
 #ifdef __cplusplus
@@ -69,11 +70,9 @@ extern "C"{
 
 #if defined(EIMSK)
 
-#endif
-#if defined(GIMSK)
+#elif defined(GIMSK)
 #define EIMSK  GIMSK
-#endif
-#if defined(GICR)
+#elif defined(GICR)
 #define EIMSK  GICR
 #endif
 
@@ -96,6 +95,10 @@ extern "C"{
 #define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
 #endif
 
+
+#ifndef offsetof
+#define offsetof(type, member)  __builtin_offsetof (type, member)
+#endif
 /*
 // undefine stdlib's abs if encountered
 #ifdef abs

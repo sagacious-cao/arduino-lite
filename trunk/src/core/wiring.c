@@ -50,7 +50,7 @@ ISR(TIMER0_OVF_vect)
 #else
 ISR(TIMER0_OVF0_vect)
 #endif
-{
+{    
 	// copy these to local variables so they can be stored in registers
 	// (volatile variables must be read from memory on every access)
 	unsigned long m = timer0_millis;
@@ -253,7 +253,7 @@ void init()
 	sbi(TCCR2, CS22);
 #else
 
-#if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega168__)
+#if (!defined(__AVR_ATtiny26__) && !defined(__AVR_ATtiny2313__) )
 	sbi(TCCR2B, CS22);
 #endif
 
@@ -263,7 +263,7 @@ void init()
 	sbi(TCCR2, WGM20);
 #else
 
-#if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega168__)
+#if (!defined(__AVR_ATtiny26__) && !defined(__AVR_ATtiny2313__) )
 	sbi(TCCR2A, WGM20);
 #endif
 

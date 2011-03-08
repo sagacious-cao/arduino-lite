@@ -48,4 +48,15 @@ void randomSeed(unsigned int);
 extern "C" long map(long, long, long, long, long);
 
 
+// Helper Functions
+
+
+#define PRINT(x, ...) print(x, ##__VA_ARGS__, serial_puts)
+
+#if defined(_DEBUG)
+#define DBG_PRINT(x, ...) print(x, ##__VA_ARGS__, serial_puts)
+#else
+#define DBG_PRINT(x, ...) 
+#endif
+
 #endif

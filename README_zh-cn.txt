@@ -17,6 +17,9 @@ RoboPeak团队网站: http://www.robopeak.com
  b. 在软件包的根目录下执行 buildenv.cmd 批注处理脚本
  c. 当该脚本完成执行后，Arduino-Lite就可以使用了
 
+Arduino-Lite是自我包含的，这意味着您无需在系统中安装任何额外的软件包和库。
+(是的，WINAVR也已经包含在Arduino-Lite中了)。
+
 -------------------------
  支持的平台
 -------------------------
@@ -74,3 +77,10 @@ Arduino-Lite和官方的Arduino库很相似，您会发现很多函数调用方式都是相近的。
    将编译产生的elf(*.elf)文件反汇编至AVR汇编代码
 <> make dumpobj
    将编译产生的目标文件(*.o)反汇编至AVR汇编代码
+
+
+---------------------------
+ 联系作者
+---------------------------
+本项目的初始开发人员是Shikai Chen (www.csksoft.net)，如有疑问，请E-mail:
+ csk@live.com

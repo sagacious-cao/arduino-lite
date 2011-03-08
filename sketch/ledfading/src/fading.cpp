@@ -20,6 +20,17 @@ void setup()  {
 
   // Previous Print class has been changed to C functions
   println("Hello from Arduino_lite!", serial_puts);
+
+  // use the PRINT marco to make serail output simple
+  PRINT("ledPin is:");
+  PRINT(ledPin);
+  PRINT("\n");
+
+
+  // for debugging output, you can use the DBG_PRINT marco 
+  // to make this marco work, you need to define _DEBUG marco
+  // #define _DEBUG
+  DBG_PRINT("Start working...\n");
 } 
 
 void loop()  {
@@ -31,7 +42,7 @@ void loop()  {
     // sleep is the power saving version of the orignal delay func
     sleep(30);       
 
-    println(millis(), serial_puts);
+    PRINT(millis());
   } 
 
   // fade out from max to min in increments of 5 points:

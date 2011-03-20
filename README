@@ -63,12 +63,27 @@ As Arduino-Lite are similar to the offical Arduino library, you will find most f
 ---------------------------
   Avaliable Make Commands
 ---------------------------
+Compiling Related:
 <> make/make all
    build the current project
 <> make clean
    clean the previous build result
+
+Chip programming and setting:
 <> make upload
-   update the hex to the AVR chip (via STK500v2 bootloader)
+   upload the hex to the AVR chip (via STK500v2 bootloader, serial-cable)
+<> make usbupload
+   upload the the to the AVR chip via USB cable (require BootloaderHID)
+<> make burn
+   burning the hex to the AVR chip via RoboPeak USB Connector programmer (or any AVR-Doper compatible devices)
+<> make erase
+   erase the AVR chip via RoboPeak USB Connector programmer (or any AVR-Doper compatible devices)
+<> make fuse
+   configure the AVR chip's fuse setting via RoboPeak USB Connector programmer (or any AVR-Doper compatible devices)
+<> make lock
+   configure the AVR chip's lock-bit setting via RoboPeak USB Connector programmer (or any AVR-Doper compatible devices)
+
+Code analysis & debugging
 <> make dump
    disassembly the generated binary (*.elf) to AVR assembly code
 <> make dumpobj

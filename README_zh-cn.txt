@@ -67,12 +67,27 @@ Arduino-Lite和官方的Arduino库很相似，您会发现很多函数调用方式都是相近的。
 ---------------------------
  可用的make命令
 ---------------------------
+编译相关:
 <> make/make all
    编译当前工程
 <> make clean
    清除上次编译的结果
+
+芯片下载/编程
 <> make upload
-   将hex上传到目标AVR芯片内(通过STK500v2协议的bootloader)
+   将hex经过串口上传到目标AVR芯片内(通过STK500v2协议的bootloader)
+<> make usbupload
+   将hex经过USB上传到目标AVR芯片内(通过HidBootloader)
+<> make burn
+   将hex通过RoboPeak USB Connector编程器(或者Avr-doper兼容设备)烧写到目标AVR芯片
+<> make erase
+   通过RoboPeak USB Connector编程器(或者Avr-doper兼容设备)擦除目标AVR芯片的数据
+<> make fuse
+   通过RoboPeak USB Connector编程器(或者Avr-doper兼容设备)给目标芯片配置熔丝位
+<> make lock
+   通过RoboPeak USB Connector编程器(或者Avr-doper兼容设备)给目标芯片配置Lock bit
+
+代码分析和调试
 <> make dump
    将编译产生的elf(*.elf)文件反汇编至AVR汇编代码
 <> make dumpobj

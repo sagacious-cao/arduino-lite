@@ -26,6 +26,9 @@ DIRNAME     := $(TOOL_ROOT)/win32/posix/dirname
 #we use the modified avrdude version provided by Arduino
 AVRDUDE     := $(TOOL_ROOT)/win32/avrdude-arduino.exe
 
+#HID based usb bootloader download app for win32
+HIDDOWNLOADER := $(TOOL_ROOT)/win32/bootloadHID.exe
+
 AVR_RUNTIME_LIB  := core.a
 AVR_RUNTIME_PATH := $(SOURCE_ROOT)/core
 AVR_OBJ_ROOT     := $(OBJ_ROOT)
@@ -42,6 +45,7 @@ MCU := atmega168
 F_CPU := 16000000L
 
 AVRDUDE_PROGRAMMER := stk500v1
+BURNING_PROGRAMMER := stk500v2
 ######################################
 AVR_TOOLS_PATH = $(WINAVR_HOME)/bin
 
@@ -83,7 +87,23 @@ AVRDUDE_FLAGS = -V \
 -p $(MCU) -P $(UPLOAD_PORT) -c $(AVRDUDE_PROGRAMMER) \
 -b $(PORT_RATE)
 
+BURNING_EARSE_CHIP = -e
+BURNING_WRITE_FUSE = 
+BURNING_WRITE_LOCKFUSE = 
+BURNING_WRITE_FLASH = -U flash:w:$(TARGET).hex
+BURNING_FLAGS = -F -p $(MCU) -P $(BURNING_PORT) -c $(BURNING_PROGRAMMER)
+BURNING_PORT = avrdoper
 
+BOOTLOADER_SERIAL_M8_8M = $(SOURCE_ROOT)/bootloaders/atmega8/ATmegaBOOT@8.hex
+BOOTLOADER_SERIAL_M8_16M = $(SOURCE_ROOT)/bootloaders/atmega8/ATmegaBOOT@16.hex
+BOOTLOADER_SERIAL_M88_8M = $(SOURCE_ROOT)/bootloaders/atmegax8/ATmegaBOOT_88_pro_8MHz.hex
+BOOTLOADER_SERIAL_M88_12M = $(SOURCE_ROOT)/bootloaders/atmegax8/ATmegaBOOT_88_pro_12MHz.hex
+BOOTLOADER_SERIAL_M168_8M = $(SOURCE_ROOT)/bootloaders/atmegax8/ATmegaBOOT_168_pro_8MHz.hex
+BOOTLOADER_SERIAL_M168_16M = $(SOURCE_ROOT)/bootloaders/atmegax8/ATmegaBOOT_168_diecimila.hex
+
+BOOTLOADER_USB_M8_12M = $(SOURCE_ROOT)/bootloaders/hidbootloader/pre-compiled/mega8_12M.hex
+BOOTLOADER_USB_M88_12M = $(SOURCE_ROOT)/bootloaders/hidbootloader/pre-compiled/mega88_12M.hex
+BOOTLOADER_USB_M168_12M = $(SOURCE_ROOT)/bootloaders/hidbootloader/pre-compiled/mega168_12M.hex
 ########################################
 #Override the default compiler setting
 

@@ -62,9 +62,47 @@ eep: $(TARGET).eep
 lss: $(TARGET).lss 
 sym: $(TARGET).sym
 
-# Program the device.  
+# Program the device. 
+
+# Burning command
+
+# BUILD FUSE updating commanding based on the actual configuration
+ifdef EFUSE
+BURNING_WRITE_FUSE += -U efuse:w:0x$(EFUSE):m
+endif
+
+ifdef HFUSE
+BURNING_WRITE_FUSE += -U hfuse:w:0x$(HFUSE):m
+endif
+
+ifdef LFUSE
+BURNING_WRITE_FUSE += -U lfuse:w:0x$(LFUSE):m
+endif
+
+ifdef LOCKFUSE
+BURNING_WRITE_LOCKFUSE = -U lock:w:0x$(LOCKFUSE):m
+endif
+
+
+# erase the chip and burning the hex file only
+burn: $(TARGET).hex
+	$(AVRDUDE) $(BURNING_FLAGS) $(BURNING_WRITE_FLASH)
+
+fuse:
+	$(AVRDUDE) $(BURNING_FLAGS) $(BURNING_WRITE_FUSE)
+
+lock:
+	$(AVRDUDE) $(BURNING_FLAGS) $(BURNING_WRITE_LOCKFUSE)
+
+erase:
+	$(AVRDUDE) $(BURNING_FLAGS) $(BURNING_EARSE_CHIP)
+
+
 upload: $(TARGET).hex
 	$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH)
+
+usbupload: $(TARGET).hex
+	$(HIDDOWNLOADER) $(TARGET).hex
 
 # DEBUGING SUPPORT
 

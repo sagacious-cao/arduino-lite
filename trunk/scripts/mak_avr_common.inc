@@ -97,7 +97,7 @@ lock:
 erase:
 	$(AVRDUDE) $(BURNING_FLAGS) $(BURNING_EARSE_CHIP)
 
-
+# Bootloader command
 upload: $(TARGET).hex
 	$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH)
 

@@ -51,9 +51,18 @@ To create your own project:
 ---------------------------
   Documents?
 ---------------------------
-The project homepage on google code contains most avaliable doucments for Arduino-Lite.
+You may refer to the following links:
+  Introduction to Arduino-Lite:
+     http://www.robopeak.net/blog/?p=131
 
-  Project website: http://code.google.com/p/arduino-lite
+  How to install and use Arduino-Lite:
+     http://www.robopeak.net/blog/?p=151
+
+  Arduino-Lite Interface & Development Mannual
+     http://www.robopeak.net/blog/?p=107 
+
+  Arduino-Lite Project homepage:
+     http://code.google.com/p/arduino-lite
 
 Besides, you may check RoboPeak website(http://www.robopeak.com) for additional tips. (some articles may written in Chinese only)
 

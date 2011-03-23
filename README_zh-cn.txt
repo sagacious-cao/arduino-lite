@@ -55,9 +55,16 @@ Arduino-Lite库源代码是可以在所有平台上使用的(Linux, MacOS, Win32)，但是它的
 -------------------------
  哪里有文档和手册?
 -------------------------
-在本项目主页上有大多数已经存在的文档和手册:
+相关的使用手册和文档请访问下面的链接:
 
-  项目主页: http://code.google.com/p/arduino-lite
+  Arduino-Lite特点和原理介绍:
+         http://www.robopeak.net/blog/?p=42
+  Arduino-Lite的获取和使用:
+         http://www.robopeak.net/blog/?p=70
+  Arduino-Lite函数手册和开发参考:
+         http://www.robopeak.net/blog/?p=107
+  项目主页: 
+         http://code.google.com/p/arduino-lite
 
 另外，您可以在RoboPeak团队网站(http://www.robopeak.com)中找到额外的有用信息。
 

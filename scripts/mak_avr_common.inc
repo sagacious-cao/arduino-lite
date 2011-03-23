@@ -54,7 +54,7 @@ DEP_FILE += $(patsubst %.cpp, $(TARGET_OBJ_ROOT)/%.d, $(_CXXSRC))
 build: elf hex 
 
 clean: additionalclean
-	$(REMOVE) -r $(AVR_OUTPUT_ROOT)
+	$(REMOVE) -r $(AVR_OUTPUT_ROOT)/*
 
 elf: $(TARGET).elf
 hex: $(TARGET).hex

@@ -1,9 +1,10 @@
 #Arduino-Lite API reference
 
 The following document will no longer been updated, please refer to the following document for detailed description:
-http://www.robopeak.net/blog/?p=107
+http://www.robopeak.net/blog/?p=185
 
 下面的文章不再更新，请访问上面的链接查看具体的说明
+http://www.robopeak.net/blog/?p=107
 
 = Introduction =
 

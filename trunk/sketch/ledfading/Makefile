@@ -1,7 +1,7 @@
 HOME_TREE := ../..
 
 # TODO: Set the WINAVR_HOME if you do not want to use the build-in winavr
-WINAVR_HOME := /d/WinAVR-20090313
+# WINAVR_HOME := /d/WinAVR-20090313
 
 # TODO: set the prj_name here
 # default name is your folder's title
